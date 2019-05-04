@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="~{header :: header}">
+<body>
+<div style="text-align: center">
+
+    <table class="table table-striped">
+        <tr>
+            <td>自己的电影</td>
+            <td>推荐的电影</td>
+        </tr>
+        <tr>
+            <!-- 自己的电影 -->
+            <td width="50%" align="center" valign="top">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <td>Title</td>
+                        <td>Genres</td>
+                        <td>Score</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${model.ownMovieInfo.size()} eq 0">
+                        <td colspan="3">没有数据！</td>
+                    </tr>
+                    <tr th:each="item : ${model.ownMovieInfo}">
+                        <td th:text="${item.title}"></td>
+                        <td th:text="${item.genres}"></td>
+                        <td th:text="${item.score}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+            <!-- 推荐的电影 -->
+            <td width="50%" align="center" valign="top">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <td>Title</td>
+                        <td>Genres</td>
+                        <td>Score</td>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${model.recommendMovieInfo.size()} eq 0">
+                        <td colspan="3">没有数据！</td>
+                    </tr>
+                    <tr th:each="item : ${model.recommendMovieInfo}">
+                        <td th:text="${item.title}"></td>
+                        <td th:text="${item.genres}"></td>
+                        <td th:text="${item.score}"></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </table>
+</div>
+<div th:replace="~{footer :: footer}"></div>
+</body>
+</html>

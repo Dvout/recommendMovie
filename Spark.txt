@@ -1,0 +1,8 @@
+spark-submit --master yarn \
+    --num-executors 1 \
+    --executor-memory 2G \
+    --driver-memory 2G \
+    --executor-cores 2 \
+    --total-executor-cores 2 \
+    --class org.springframework.boot.loader.JarLauncher \
+    /home/hadoop/IdeaProjects/recommandermovie/target/recommandermovie-0.0.1-SNAPSHOT.jar

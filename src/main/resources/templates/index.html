@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head th:replace="~{header :: header}">
+</head>
+
+<body>
+<div class="container blog-content-container">
+    <form action="recommend" method="post">
+        <table border="0">
+            <tr>
+                <td align="right">Enter UserID</td>
+                <td align="left"><input type="text" class="form-control" name="userId"></td>
+            </tr>
+            <tr>
+                <td align="right">Enter Size</td>
+                <td align="left">
+                    <input type="text" class="form-control" name="size" value="25">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="radio" name="recommendType" checked="checked" value="userBased">User Based
+                    <input type="radio" name="recommendType" value="itemBased">Item Based
+                    <input type="radio" name="recommendType" value="slopeOne">Slope One
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" class="btn btn-default"  value="submit">
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
+<div th:replace="~{footer :: footer}"></div>
+</body>
+</html>
